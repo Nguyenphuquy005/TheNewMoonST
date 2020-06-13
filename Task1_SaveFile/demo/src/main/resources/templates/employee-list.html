@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        table, th, td, tr {
+            border: 1px solid black;
+        }
+        td {
+            padding-right: 30px;
+        }
+    </style>
+</head>
+<body>
+<h1>List Customer:</h1>
+<a th:href="@{/customer-save}">Add Customer</a>
+<br />
+<br />
+<table>
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Address</th>
+        <th>View</th>
+    </tr>
+    <th:block th:each="row : ${listEmployee}">
+        <tr>
+            <td><p th:text="${row.id}"></p></td>
+            <td><p th:text="${row.title}"></p></td>
+            <td><p th:text="${row.author}"></p></td>
+            <td><p th:text="${row.copies}"></p></td>
+<!--            <td><a th:href="@{/customer-view/} + ${customer.id}">View</a></td>-->
+<!--            <td><a th:href="@{/customer-update/} + ${customer.id}">Edit</a></td>-->
+<!--            <td><a th:href="@{/customerDelete/} + ${customer.id}">Delete</a></td>-->
+        </tr>
+    </th:block>
+</table>
+</body>
+</html>

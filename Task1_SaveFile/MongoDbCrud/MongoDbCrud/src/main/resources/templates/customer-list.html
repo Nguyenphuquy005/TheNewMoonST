@@ -1,0 +1,48 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Spring Boot - Hibernate</title>
+<style>
+table, th, td, tr {
+	border: 1px solid black;
+}
+
+td {
+	padding-right: 30px;
+}
+</style>
+</head>
+<body>
+	<h1>List Customer:</h1>
+	<a th:href="@{/customer-save}">Add Customer</a>
+	<form style="padding-left: 32em" th:action="@{/}" class="form-inline">
+		<div class="form-group mx-sm-3 mb-2">
+			<input type="text" class="form-control" name="name" placeholder="">
+		</div>
+		<button type="submit" class="btn btn-primary mb-2">Search</button>
+	</form>
+	<br />
+	<br />
+
+	<table>
+		<tr>
+			<th>Id</th>
+			<th>Name</th>
+			<th>Address</th>
+			<th>View</th>
+			<th>Edit</th>
+			<th>Delete</th>
+		</tr>
+		<th:block th:each="customer : ${listCustomer}">
+			<tr>
+				<td><p th:text="${customer.id}"></p></td>
+				<td><p th:text="${customer.name}"></p></td>
+				<td><p th:text="${customer.address}"></p></td>
+				<td><a th:href="@{/customer-view/} + ${customer.id}">View</a></td>
+				<td><a th:href="@{/customer-update/} + ${customer.id}">Edit</a></td>
+				<td><a th:href="@{/customerDelete/} + ${customer.id}">Delete</a></td>
+			</tr>
+		</th:block>
+	</table>
+
+</body>
+</html>
