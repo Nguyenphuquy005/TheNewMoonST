@@ -1,13 +1,56 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8606afda-5428-4e6c-b17b-2c6e169806e7" name="Default Changelist" comment="" />
+    <list default="true" id="8606afda-5428-4e6c-b17b-2c6e169806e7" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/MongoDbCrud/src/main/java/stackjava/com/mongodb/controller/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Demo1/demo2/.idea/demo2.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Demo1/demo2/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Demo1/demo2/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Demo1/demo2/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Mongodb/.idea/Mongodb.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Mongodb/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Mongodb/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Mongodb/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Mongodb/demo1.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../PHP/phpStart.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../GetData/src/main/java/com/example/demo/hymltest/DemoTest.html" beforeDir="false" afterPath="$PROJECT_DIR$/../GetData/src/main/java/com/example/demo/hymltest/DemoTest.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../GetData/src/main/java/com/example/demo/main/ReadSaveFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/../GetData/src/main/java/com/example/demo/main/ReadSaveFile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../GetData/src/main/java/com/example/demo/main/SaveLinkAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/../GetData/src/main/java/com/example/demo/main/SaveLinkAction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../GetData/src/main/java/com/example/demo/saveDomainHandle/Demo2.java" beforeDir="false" afterPath="$PROJECT_DIR$/../GetData/src/main/java/com/example/demo/saveDomainHandle/Demo2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../GetData/src/main/java/com/example/demo/saveDomainHandle/saveLinhkDomain/Jigsaw.java" beforeDir="false" afterPath="$PROJECT_DIR$/../GetData/src/main/java/com/example/demo/saveDomainHandle/saveLinhkDomain/Jigsaw.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MongoDbCrud/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/MongoDbCrud/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MongoDbCrud/src/main/java/stackjava/com/mongodb/main/DemoMain.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MongoDbCrud/src/main/java/stackjava/com/mongodb/main/docFile.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../TranMinhTrieu_3_1/.idea/TranMinhTrieu_3_1.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../TranMinhTrieu_3_1/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../TranMinhTrieu_3_1/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../TranMinhTrieu_3_1/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../TranMinhTrieu_3_1/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../TranMinhTrieu_3_1/SpringToll/spring-jpa-customer-management" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../TranMinhTrieu_3_1/TranMinhTrieu_CodeGymDaNang_C1119G1" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../file/1.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../file/domain_file/Domain/tumblerLink.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../file/domain_file/LinkHandle/tumblerHandle.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../file/domain_file/canvasLink.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../file/domain_file/jigsawHandle.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../../file/domain_file/jigsawHandle.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../file/hoodie.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../file/jigsaw.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../file/lovechoiceTumbler.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../file/smilestylesTumbler.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../file/summerdealTumbler.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../file/tumbler.bat" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
   <component name="ProjectId" id="1d9VpAQ3KmsMusOxoAYlLptEMSf" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -31,6 +74,8 @@
       <option name="presentableId" value="Default" />
       <updated>1591837476183</updated>
       <workItem from="1591837479045" duration="62000" />
+      <workItem from="1592216803719" duration="58000" />
+      <workItem from="1592275443017" duration="11000" />
     </task>
     <servers />
   </component>
@@ -38,9 +83,13 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="740" y="278" key="FileChooserDialogImpl" timestamp="1591837540527">
+    <state x="740" y="278" key="FileChooserDialogImpl" timestamp="1592275452338">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="740" y="278" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1591837540527" />
+    <state x="740" y="278" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1592275452338" />
+    <state x="342" y="134" key="new project wizard" timestamp="1592216844726">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="342" y="134" key="new project wizard/0.0.1920.1040@0.0.1920.1040" timestamp="1592216844726" />
   </component>
 </project>

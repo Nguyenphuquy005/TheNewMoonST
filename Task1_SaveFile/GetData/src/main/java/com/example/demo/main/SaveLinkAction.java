@@ -18,8 +18,8 @@ public class SaveLinkAction {
             while (contentLine != null) {
 
                 if (checkValid(contentLine)){
-                    TimeUnit.SECONDS.sleep(1);
                     System.out.println(contentLine);
+                    TimeUnit.SECONDS.sleep(1);
                     SaveFile(contentLine);
                 }
                 contentLine = br.readLine();
@@ -34,6 +34,8 @@ public class SaveLinkAction {
             }
         }
     }
+
+
     public static boolean checkValid( String domain) throws IOException {
         try {
             URL url = new URL("https://"+ domain +"/products.json?limit=1");

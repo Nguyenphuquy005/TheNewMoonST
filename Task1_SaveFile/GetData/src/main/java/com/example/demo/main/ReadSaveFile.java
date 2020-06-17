@@ -45,7 +45,7 @@ public class ReadSaveFile {
                         check = false ;
 
                     }else {
-//                       collection.insertMany(arrayList);
+                       collection.insertMany(arrayList);
                         p++ ;
                     }
 
