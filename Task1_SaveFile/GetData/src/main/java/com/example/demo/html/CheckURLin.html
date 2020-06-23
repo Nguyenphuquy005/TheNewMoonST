@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>jQuery UI Draggable - Default functionality</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script type="text/javascript">
+        function loadURl(URL){
+            alert(URL) ;
+            $(document).ready(function(){
+                $("#content").attr("src",URL);
+            })
+        }
+        function loadFileAsText() {
+            var fileToLoad = document.getElementById("fileToLoad").files[0];
+
+            var fileReader = new FileReader();
+            fileReader.onload = function (fileLoadedEvent) {
+                var textFromFileLoaded = fileLoadedEvent.target.result;
+                 textFromFileLoaded = textFromFileLoaded.split("\n") ;
+                for(var i=0;i<textFromFileLoaded.length;i++){
+                    let str = textFromFileLoaded[i];
+                    let result = str.link(textFromFileLoaded[i]);
+                    let linkbutton = textFromFileLoaded[i];
+
+                    document.getElementById("inputTextToSave").innerHTML +=
+                        "<tr>" +
+                        "<td>" +
+                        result +
+                        "</td>"+
+                        "<td>" +
+                        "<button style='background-color: black' type=\"button\" class=\"btn btn-danger\"  onclick=\"loadURl(" + str + ") )  \">Click</button>"
+                        +    "</td>" +  "<td>" +
+                        "<button  onclick=\"loadURl('" + str + "')\">" + str + "</button>"
+                        +    "</td>" +
+                        "</tr>"
+
+
+                    document.getElementById("test").innerText += result + "\n" +  "<button  onclick=\"loadURl('" + str + "')\">" + str + "</button>"
+
+                }
+
+            };
+            fileReader.readAsText(fileToLoad, "UTF-8");
+        }
+
+
+        $(document).ready(function(){
+            $("#content").attr("src","http://vnexpress.net");
+        })
+    </script>
+</head>
+<body>
+<a href=""></a>
+  <div  class="mt-5">
+      <div class="row">
+          <div class="col-5"><div>Select a File to Load:</div>
+              <div><input type="file" id="fileToLoad"></div>
+              <div><button onclick="loadFileAsText()">Load Selected File</button></div>
+                  <table class="table" id="inputTextToSave"  style="width:350px;height:256px"></table>
+                   <div id="test"></div>
+          </div>
+          <div class="col-7" style="text-align: center"><iframe width="500px" height="300px" id="content" src="" frameborder="4" ></iframe></div>
+      </div>
+  </div>
+   <p id="check"></p>
+<!--<a href="https://www.rapidtables.com/web/html/link/html-link-new-window.html" target="_blank">Open page in new window</a>-->
+</body>
+</html>

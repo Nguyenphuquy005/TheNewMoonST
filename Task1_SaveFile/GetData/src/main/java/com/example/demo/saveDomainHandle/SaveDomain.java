@@ -10,21 +10,20 @@ import java.net.URL;
 import java.net.URLConnection;
 import java.util.Scanner;
 
-public class Demo {
+public class SaveDomain {
     public static void main(String[] args) {
         try {
-            File myObj = new File("D:\\TheNewMoonST\\file\\domain_file\\sunshadeLink.txt");
+            File myObj = new File("D:\\TheNewMoonST\\file\\domain_file\\get.txt");
             Scanner myReader = new Scanner(myObj);
             while (myReader.hasNextLine()) {
                 String data = myReader.nextLine();
+                System.out.println("1:  " + data);
+
                 Boolean check = true;
                 long p = 1;
                 while (check) {
-                    String output = getUrlContents(data + "/products.json?limit=500&page=" + p);
+                    String output = getUrlContents(data+"/products.json?limit=500&page="+p);
                     System.out.println(output);
-                    if (output.equals("{\"products\":[]}")){
-                        check = false ;
-                    };
                     if (isJSONValid(output)) {
                         JSONObject object = new JSONObject(output) ;
                         JSONArray array = object.getJSONArray("products");
@@ -36,14 +35,10 @@ public class Demo {
                             for (int i=0 ; i< array.length() ; i++){
                                 System.out.println(i);
                                 System.out.println(array.length());
-                                System.out.println("2:  "  + data);
+                                System.out.println(data);
                                 JSONObject objectResult = new JSONObject(array.get(i).toString());
-                                if(CheckChart(objectResult.getString("handle").toLowerCase())){
                                     System.out.println(objectResult.getString("handle"));
-                                SaveFile(data+"/products/"+objectResult.get("handle").toString());
-                                }else {
-                                    System.out.println("next Record");
-                                }
+                                    SaveFile(data+"/products/"+objectResult.get("handle").toString());
                             }
                             p++ ;
                         }
@@ -65,7 +60,7 @@ public class Demo {
     }
 
     public static boolean CheckChart(String link) {
-        return link.toLowerCase().contains("sunshade");
+        return link.toLowerCase().contains("canvas");
 
     }
     public static boolean isJSONValid(String test) {
@@ -105,7 +100,7 @@ public class Demo {
     }
 
     public static void SaveFile(String data) throws IOException {
-        BufferedWriter writer = new BufferedWriter(new FileWriter("D:\\TheNewMoonST\\file\\domain_file\\sunshadeHandle.txt", true));
+        BufferedWriter writer = new BufferedWriter(new FileWriter("D:\\TheNewMoonST\\file\\domain_file\\canvas_shopify1Handle.txt", true));
         writer.write(data + "\n");
         writer.close();
     }

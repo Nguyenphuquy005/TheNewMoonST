@@ -13,4 +13,6 @@ import java.util.Optional;
 
 @Repository
 public interface CustomerRepository extends MongoRepository<Customer, String> {
+//     Page<Customer> findCustomerByName( String name , Pageable pageable) ;
+//     Page<Customer> findAllCustomer () ;
 }

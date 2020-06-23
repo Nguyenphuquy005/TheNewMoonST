@@ -23,7 +23,6 @@ public class CustomerController {
 
 	@Autowired
 	private CustomerRepository customerRepository;
-
 	@RequestMapping(value = { "/", "/customer-list" })
 	public String listCustomer(
 			Model model) {

@@ -1,5 +1,6 @@
-package com.example.demo.saveDomainHandle.saveLinhkDomain;
-
+package com.example.demo.saveDomainHandle.proxy;
+import com.example.demo.saveDomainHandle.proxy.ProxiesHandle;
+import com.example.demo.saveDomainHandle.proxy.DomainHandle;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -7,21 +8,23 @@ import org.json.JSONObject;
 import java.io.*;
 import java.net.URL;
 import java.net.URLConnection;
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.Scanner;
 
-public class SaveDataByHandle {
+public class SaveDomainProxy {
     public static void main(String[] args) {
         try {
-            File myObj = new File("D:\\TheNewMoonST\\file\\domain_file\\canvas1.txt");
+            File myObj = new File("D:\\TheNewMoonST\\file\\domain_file\\canvas_shopify.txt");
             Scanner myReader = new Scanner(myObj);
             while (myReader.hasNextLine()) {
                 String data = myReader.nextLine();
                 System.out.println("1:  " + data);
-//                1
+
                 Boolean check = true;
                 long p = 1;
                 while (check) {
-                    String output = getUrlContents(data + "/products.json?limit=500&page=" + p);
+                    String output = getUrlContents(data+"/products.json?limit=500&page="+p);
                     System.out.println(output);
                     if (isJSONValid(output)) {
                         JSONObject object = new JSONObject(output) ;
@@ -36,23 +39,18 @@ public class SaveDataByHandle {
                                 System.out.println(array.length());
                                 System.out.println(data);
                                 JSONObject objectResult = new JSONObject(array.get(i).toString());
-                                if(CheckChart(objectResult.getString("handle"))){
                                     System.out.println(objectResult.getString("handle"));
                                     SaveFile(data+"/products/"+objectResult.get("handle").toString());
-                                }else {
-                                    System.out.println("next Record");
-                                }
                             }
                             p++ ;
                         }
                     }
                 };
-//                1
+
             };
             myReader.close();
         } catch (FileNotFoundException e) {
-            System.out.println("An error occurred.");
-            e.printStackTrace();
+
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -103,7 +101,7 @@ public class SaveDataByHandle {
     }
 
     public static void SaveFile(String data) throws IOException {
-        BufferedWriter writer = new BufferedWriter(new FileWriter("D:\\TheNewMoonST\\file\\domain_file\\canvas1Handle.txt", true));
+        BufferedWriter writer = new BufferedWriter(new FileWriter("D:\\TheNewMoonST\\file\\domain_file\\canvas_shopify1Handle.txt", true));
         writer.write(data + "\n");
         writer.close();
     }
