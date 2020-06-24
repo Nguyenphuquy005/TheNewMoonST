@@ -45,11 +45,7 @@ public class GetInfomation {
        Product product = new Product(docElement.selectFirst(".product_name").text(),docElement.selectFirst(".current_price ").text(),
                lists)   ;
 
-       Gson gson = new Gson();
-       String json = gson.toJson(product) ;
-       System.out.println(lists);
-       System.out.println(json);
-       SaveFileJson(json,"D:\\TheNewMoonST\\file\\json\\handlenojson.txt");
+
    }
     public static void getHandle(String data) throws IOException {
         System.out.println("Get infomation on many products");
