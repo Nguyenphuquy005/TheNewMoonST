@@ -22,10 +22,15 @@ public class ReadURLNoJson {
     public static void main(String[] args) throws IOException {
 
         System.out.println("Get infomation on many products");
-        Document docAll = Jsoup.connect("https://thecustomee.com/collections/all/tumbler").get();
-        Elements handle = docAll.select(".product-info__caption")  ;
+        Document docAll = Jsoup.connect("https://www.wayfair.com/decor-pillows/sb0/canvas-art-c261307.html").get();
+        System.out.println(docAll.body());
+//        Elements handle= docAll.body().selectFirst(".BrowseProductGrid").select("a.ProductName");
+//        System.out.println(handle);
+        Elements handle = docAll.select(".ProductCard")  ;
+//        System.out.println(handle);
+        System.out.println(handle.size());
         for(int i=0;i<handle.size();i++){
-            System.out.println(    "https://thecustomee.com" + handle.get(i).attr("href"));
+            System.out.println(    handle.get(i).attr("href"));
 //            SaveFile("https://thecustomee.com" + handle.get(i).attr("href"));
         }
         System.out.println("_________________________");
@@ -50,18 +55,18 @@ public class ReadURLNoJson {
 //        System.out.println(json);
 //        SaveFileJson(json);
 
-//        String jsonString = new JSONObject()
-//                .append("name", docElement.selectFirst(".product_name").text())
-//                .append("price", docElement.selectFirst(".current_price ").text())
-//                .append("images", lists)
-//                .toString();
-//        System.out.println(jsonString);
-//        SaveFileJson(jsonString);
+        String jsonString = new JSONObject()
+                .append("name", docElement.selectFirst(".product_name").text())
+                .append("price", docElement.selectFirst(".current_price ").text())
+                .append("images", lists)
+                .toString();
+        System.out.println(jsonString);
+        SaveFileJson(jsonString);
         org.bson.Document document = new org.bson.Document();
         document.append("Name", docElement.selectFirst(".product_name").text());
         document.append("Price",docElement.selectFirst(".current_price ").text());
         document.append("Images", lists);
-        SaveFileJson(document.toJson());
+//        SaveFileJson(document.toJson());
 
     }
     public static void SaveFile(String data) throws IOException {

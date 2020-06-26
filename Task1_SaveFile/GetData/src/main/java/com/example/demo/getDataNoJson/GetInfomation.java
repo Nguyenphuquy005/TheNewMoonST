@@ -41,11 +41,19 @@ public class GetInfomation {
            images.get(i).attr("src") ;
            lists.add( images.get(i).attr("src")) ;
        }
-
        Product product = new Product(docElement.selectFirst(".product_name").text(),docElement.selectFirst(".current_price ").text(),
                lists)   ;
-
-
+       Gson gson = new Gson();
+       String json = gson.toJson(product) ;
+       System.out.println(json);
+//       SaveFileJson( json ,"D:\\TheNewMoonST\\file\\json\\handleJson.txt");
+       //        String jsonString = new JSONObject()
+//                .append("name", docElement.selectFirst(".product_name").text())
+//                .append("price", docElement.selectFirst(".current_price ").text())
+//                .append("images", lists)
+//                .toString();
+//        System.out.println(jsonString);
+//        SaveFileJson(jsonString);
    }
     public static void getHandle(String data) throws IOException {
         System.out.println("Get infomation on many products");
@@ -53,7 +61,7 @@ public class GetInfomation {
         Elements handle = docAll.select(".product-info__caption");
         for (int i = 0; i < handle.size(); i++) {
             System.out.println("https://thecustomee.com" + handle.get(i).attr("href"));
-            SaveFile("https://thecustomee.com" + handle.get(i).attr("href"),"D:\\TheNewMoonST\\file\\json\\handle.txt");
+//            SaveFile("https://thecustomee.com" + handle.get(i).attr("href"),"D:\\TheNewMoonST\\file\\json\\handle.txt");
         }
     }
         public static void SaveFile(String data , String file) throws IOException {
@@ -66,5 +74,4 @@ public class GetInfomation {
         writer.write(data + "\n");
         writer.close();
     }
-
 }

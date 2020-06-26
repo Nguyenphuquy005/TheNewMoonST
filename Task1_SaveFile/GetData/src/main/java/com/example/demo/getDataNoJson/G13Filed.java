@@ -15,23 +15,24 @@ import java.util.ArrayList;
 
 public class G13Filed {
     public static void main(String[] args) throws IOException {
-        Document docElement = Jsoup.connect("hhttps://www.houzz.com/products/wolf-girl-framed-canvas-giclee-by-oren-hayman-17x17-prvw-vr~79251825").get();
-        System.out.println(docElement.selectFirst(".view-product-title").text());
-        Element imagelist   = docElement.selectFirst(".product_gallery_nav");
-        Elements images = imagelist.select("img") ;
-        ArrayList<String> lists = new ArrayList<String>();
+        String url = "https://minkyway.com/product/limited-edition-3d-full-printing-tt051ass/" ;
+        String[]  handle = url.split("/") ;
+        Document docElement = Jsoup.connect(url).get();
+        System.out.println(docElement.selectFirst(".variable-item-span").text());   // Product Type
+        System.out.println(docElement.selectFirst(".product-title").text());        // title
+        System.out.println(docElement.selectFirst(".variable-item-span").text());   // Variants
+        System.out.println(handle[handle.length-1]);                                //handle
+        Element listImg = docElement.selectFirst(".flickity-viewport");
+        System.out.println(listImg);
+//        Elements img = docElement.getElementsByTag("a") ;
 
-        for (int i=0;i<images.size();i++){
-            images.get(i).attr("src") ;
-            lists.add( images.get(i).attr("src")) ;
-            System.out.println(lists);
-        }
-        org.bson.Document document = new org.bson.Document();
-        document.append("name", docElement.selectFirst(".product_name").text());
-        document.append("body_html",docElement.body());
+//        System.out.println(img);
+//        System.out.println(img);
+//        for (int i =0 ; i< img.size() ; i++){
+//            System.out.println(img.get(i).attr("href"));    // IMG
+//        }
 
-         System.out.println(document.toJson());
-//        SaveFileJson(document.toJson());
+
 
     }
     public static void SaveFile(String data) throws IOException {
