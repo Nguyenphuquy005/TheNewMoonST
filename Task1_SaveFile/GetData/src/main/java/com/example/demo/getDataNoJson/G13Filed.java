@@ -15,24 +15,24 @@ import java.util.ArrayList;
 
 public class G13Filed {
     public static void main(String[] args) throws IOException {
-        String url = "https://minkyway.com/product/limited-edition-3d-full-printing-tt051ass/" ;
+        String url = "https://thecustomee.com/collections/all/products/cat-tumbler-7" ;
         String[]  handle = url.split("/") ;
         Document docElement = Jsoup.connect(url).get();
-        System.out.println(docElement.selectFirst(".variable-item-span").text());   // Product Type
-        System.out.println(docElement.selectFirst(".product-title").text());        // title
-        System.out.println(docElement.selectFirst(".variable-item-span").text());   // Variants
         System.out.println(handle[handle.length-1]);                                //handle
-        Element listImg = docElement.selectFirst(".flickity-viewport");
-        System.out.println(listImg);
-//        Elements img = docElement.getElementsByTag("a") ;
-
-//        System.out.println(img);
-//        System.out.println(img);
-//        for (int i =0 ; i< img.size() ; i++){
-//            System.out.println(img.get(i).attr("href"));    // IMG
+        System.out.println(docElement.selectFirst(".product_name").text());   // title
+        Element variants = docElement.selectFirst(".single-option-selector") ;
+             Element v =  docElement.after(".single-option-selector");
+        System.out.println(v);
+//        Elements listVariants = variants.getElementsByTag("option") ;
+//        for(int i=0 ; i<listVariants.size();i++){
+//            System.out.println(listVariants.get(i).attr("value"));
 //        }
 
 
+    replacePrice("https://thecustomee.com/collections/all/products/50-scientists-tumbler.json");
+
+    }
+    public static void replacePrice(String url) {
 
     }
     public static void SaveFile(String data) throws IOException {

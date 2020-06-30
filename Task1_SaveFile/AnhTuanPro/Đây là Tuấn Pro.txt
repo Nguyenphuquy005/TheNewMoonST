@@ -1,0 +1,42 @@
+ý là nó gia nhập vào hàm main ngay tại đây
+bảo hàm main là chạy nó rồi mới chạy tiếp
+kiểu main đang chạy 1 2 3 4 5 6 nó join vào dòng 5 thì thành ra
+1 2 3 4 5 join() 6
+join nó bắt thằng thread chính đang chứa nó phải đợi nó làm xong rồi mới chạy tiếp
+như code anh là nó bảo domain phải chạy hết rồi mới được chạy vòng for
+public static void main(String[] args)
+nó cũng là 1 luồng
+toàn bộ code trong main{} là hàm run của nó đó.
+nên main là luồng cha của tất cả luồng con...
+.join() thì bảo luồng cha đợi thằng class.join đó thực thi xong mới chạy code tiếp tục
+vậy thằng domainProvider.start();
+chạy rồi join() nó sẽ thành domainProvider
+phải chạy xong
+int num=proxyContainer.getSize();
+        for (int i=1;i<=num;i++){
+mới đc chạy
+bình thường thì strat() thì nó chạy đồng thời code phía dưới nó lun đúng ko?
+đúng r
+thằng join() đứng dưới start() để báo start() phải chạy hết dòng cuối trong hàm run()
+thì mới được chạy code tiếp theo sau start()
+theo sau  domainProvider.join(); là
+int num=proxyContainer.getSize();
+domainProvider.start();
+int num=proxyContainer.getSize();
+bt thì start chạy chưa xong thì int có giá trị luôn
+để e đọc lại tử đâu
+f😳
+domainProvider.start();
+domainProvider.join();
+int num=proxyContainer.getSize();
+thì num phải chờ start() chạy xong rồi mới có giá trị
+còn chi nữa k a
+để e bỏ zô notedPath đọc cho dễ
+cũng ko nhớ nữa...
+làm 2 tuần điên cả đầu....
+mà project đó ngon cơm rồi đúng k a
+ai biết
+có vẻ ngon
+nhưng ko biết có nhanh không
+cứ cho là ngon đi
+nãy giờ cả tiếng chạy đc có 15k domain

@@ -6,20 +6,25 @@ import java.util.Scanner;
 public class CloneFile {
     public static void main(String[] args) {
         try {
-            File myObj = new File("D:\\TheNewMoonST\\file\\domain_file\\canvas_ImgHandle.txt");
+            File myObj = new File("D:\\TheNewMoonST\\file\\json\\sunshadeHandle.txt");
             Scanner myReader = new Scanner(myObj);
-            long i =2 ;
+            long i =1 ;
             long  k  = 1 ;
             while (myReader.hasNextLine()) {
-
-                if (k == 5001){
+                String data = myReader.nextLine();
+                if (k == 3001){
                     i++ ;
                     k = 1 ;
                 }
-                String data = myReader.nextLine();
+                if(CheckChart(data.toLowerCase())){
+                    System.out.println("next");
+                }else {
                     System.out.println(data);
                     SaveFile(data,i);
                     k ++ ;
+                }
+
+
             }
             myReader.close();
         } catch (FileNotFoundException e) {
@@ -30,11 +35,11 @@ public class CloneFile {
         }
     }
     public static boolean CheckChart(String link) {
-        return link.toLowerCase().contains("canvas");
+        return link.toLowerCase().contains("2-pieces");
 
     }
     public static void SaveFile(String data , long i) throws IOException {
-        BufferedWriter writer = new BufferedWriter(new FileWriter("D:\\TheNewMoonST\\file\\domain_file\\Canvas\\handle\\canvas_shopify"+i+"Handle.txt", true));
+        BufferedWriter writer = new BufferedWriter(new FileWriter("D:\\TheNewMoonST\\file\\json\\s"+i+"Handle.txt", true));
         writer.write(data + "\n");
         writer.close();
     }

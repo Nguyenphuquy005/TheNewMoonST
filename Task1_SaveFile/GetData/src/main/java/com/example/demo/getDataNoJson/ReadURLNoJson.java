@@ -23,7 +23,6 @@ public class ReadURLNoJson {
 
         System.out.println("Get infomation on many products");
         Document docAll = Jsoup.connect("https://www.wayfair.com/decor-pillows/sb0/canvas-art-c261307.html").get();
-        System.out.println(docAll.body());
 //        Elements handle= docAll.body().selectFirst(".BrowseProductGrid").select("a.ProductName");
 //        System.out.println(handle);
         Elements handle = docAll.select(".ProductCard")  ;
@@ -38,6 +37,7 @@ public class ReadURLNoJson {
         System.out.println(docElement.selectFirst(".product_name").text());
         System.out.println(docElement.selectFirst(".current_price").text());
         Element imagelist   = docElement.selectFirst(".product_gallery_nav");
+        System.out.println(imagelist);
         Elements images = imagelist.select("img") ;
         ArrayList<String> lists = new ArrayList<String>();
 
