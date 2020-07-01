@@ -21,7 +21,7 @@ public class UpdatePrice {
         return new ResponseEntity<>( updatePrice("https://thecustomee.com/collections/all/products/50-scientists-tumbler",25.25,25.32) , HttpStatus.OK);
     }
 
-    public  static String updatePrice(String data , Double  price1 , Double price2) throws JSONException {
+    public static   String updatePrice(String data , Double  price1 , Double price2) throws JSONException {
         String output = getUrlContents(data+".json") ;
         JSONObject obj = new JSONObject(output) ;
         int lenghts= obj.getJSONObject("product").getJSONArray("variants").length();
