@@ -6,13 +6,13 @@ import java.util.Scanner;
 public class CloneFile {
     public static void main(String[] args) {
         try {
-            File myObj = new File("D:\\TheNewMoonST\\file\\json\\sunshadeHandle.txt");
+            File myObj = new File("D:\\TheNewMoonST\\file\\json\\22.txt");
             Scanner myReader = new Scanner(myObj);
             long i =1 ;
             long  k  = 1 ;
             while (myReader.hasNextLine()) {
                 String data = myReader.nextLine();
-                if (k == 3001){
+                if (k == 1001){
                     i++ ;
                     k = 1 ;
                 }
@@ -39,7 +39,7 @@ public class CloneFile {
 
     }
     public static void SaveFile(String data , long i) throws IOException {
-        BufferedWriter writer = new BufferedWriter(new FileWriter("D:\\TheNewMoonST\\file\\json\\s"+i+"Handle.txt", true));
+        BufferedWriter writer = new BufferedWriter(new FileWriter("D:\\TheNewMoonST\\file\\json\\passtport\\p"+i+"Handle.txt", true));
         writer.write(data + "\n");
         writer.close();
     }
