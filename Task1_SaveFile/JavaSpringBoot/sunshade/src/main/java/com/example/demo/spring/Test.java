@@ -51,10 +51,10 @@ public class Test {
         int lenghtoption = obj.getJSONObject("product").getJSONArray("options").length();
         JSONObject value = (JSONObject) obj.getJSONObject("product").getJSONArray("options").get(0);
         JSONArray values = value.getJSONArray("values");
-        values.remove(5);
+        values.remove(2);
         values.remove(4);
         values.remove(3);
-        values.remove(2);
+        values.remove(5);
         System.out.println(values.get(0));
         return new ResponseEntity<>(obj.toString(), HttpStatus.OK);
     }

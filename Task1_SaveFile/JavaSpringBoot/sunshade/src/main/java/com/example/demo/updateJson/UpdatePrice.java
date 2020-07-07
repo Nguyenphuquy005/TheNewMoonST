@@ -9,7 +9,6 @@ import java.io.*;
 import java.net.URL;
 import java.net.URLConnection;
 import java.util.Collection;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -66,8 +65,8 @@ public class UpdatePrice {
                 itemArr.put("option1", (Collection< ? >) null);
                 System.out.println("new Price: " + itemArr.getString("price"));
                 System.out.println(i + "_" + itemArr);
-
             }else if (itemArr.getString("title").equals("Buy 5")){
+
                 System.out.println("old Price: " + itemArr.getString("price"));
                 itemArr.put("compare_at_price", (Collection< ? >) null);
                 itemArr.put("option1", (Collection< ? >) null);
@@ -77,7 +76,6 @@ public class UpdatePrice {
             else {
                 System.out.println("3");
             }
-
             JSONObject value = (JSONObject) obj.getJSONObject("product").getJSONArray("options").get(0) ;
             JSONArray values = value.getJSONArray("values") ;
             for (int j = 1;j <= values.length();j++ ){
@@ -87,14 +85,8 @@ public class UpdatePrice {
         }
         JSONObject value = (JSONObject) obj.getJSONObject("product").getJSONArray("options").get(0);
         JSONArray values = value.getJSONArray("values");
-
         return new ResponseEntity(obj.toString(), HttpStatus.OK);
-
     }
-
-
-
-
     private static String getUrlContents(String theUrl) {
         StringBuilder content = new StringBuilder();
 
@@ -102,17 +94,14 @@ public class UpdatePrice {
             URL url = new URL(theUrl);
             URLConnection urlConnection = url.openConnection();
             BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(urlConnection.getInputStream()));
-
             String line;
             while((line = bufferedReader.readLine()) != null) {
-                content.append(line + "\n");
+                    content.append(line + "\n");
             }
-
             bufferedReader.close();
         } catch (Exception var6) {
             var6.printStackTrace();
         }
-
         return content.toString();
     }
 }
