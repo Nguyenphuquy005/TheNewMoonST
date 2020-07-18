@@ -13,7 +13,7 @@ import java.util.Scanner;
 public class SaveDomain {
     public static void main(String[] args) {
         try {
-            File myObj = new File("D:\\TheNewMoonST\\file\\domain_file\\get.txt");
+            File myObj = new File("D:\\TheNewMoonST\\file\\domain_file\\Domain\\totbag.txt");
             Scanner myReader = new Scanner(myObj);
             while (myReader.hasNextLine()) {
                 String data = myReader.nextLine();
@@ -23,7 +23,7 @@ public class SaveDomain {
                 long p = 1;
                 while (check) {
                     String output = getUrlContents(data+"/products.json?limit=500&page="+p);
-                    System.out.println(output);
+                    System.out.println(getUrlContents(data+"/products.json?limit=500&page="+p));
                     if (isJSONValid(output)) {
                         JSONObject object = new JSONObject(output) ;
                         JSONArray array = object.getJSONArray("products");
@@ -100,7 +100,7 @@ public class SaveDomain {
     }
 
     public static void SaveFile(String data) throws IOException {
-        BufferedWriter writer = new BufferedWriter(new FileWriter("D:\\TheNewMoonST\\file\\domain_file\\canvas_shopify1Handle.txt", true));
+        BufferedWriter writer = new BufferedWriter(new FileWriter("D:\\TheNewMoonST\\file\\domain_file\\Domain\\tBag.txt", true));
         writer.write(data + "\n");
         writer.close();
     }

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<link rel="stylesheet" href="css/background.css">
+<meta charset="UTF-8">
+<title>Tây Show_Room</title>
+<link th:href="@{/resources/css/background.css}" rel="stylesheet"/>
+<link th:href="@{/resources/jquery/slide-tab.js}" rel="stylesheet"/>
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+      integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<body>
+<div class="filexlayout">
+    <div style="background-color: white">
+        <a href=""><img
+                src="https://library.kissclipart.com/20180903/yq/kissclipart-facebook-png-clipart-logo-facebook-clip-art-dcc656bbad6d3b49.jpg"
+                alt=""></a>
+        <p style="color: blue">Facebook</p>
+    </div>
+
+    <div style="background-color: black ">
+        <a href=""><img
+                src="data:image/png;base64,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"
+                alt=""></a>
+        <p style="color: white">Đăng ký lái thử</p>
+    </div>
+
+    <div style="background-color: greenyellow">
+        <a href=""><img src="https://iweb.tatthanh.com.vn/pic/3/blog/images/logo-dien-thoai(10).jpg" alt=""></a>
+        <p>hotline: 0787499938</p>
+    </div>
+
+    <div style="
+ background-color: dodgerblue ;">
+        <a style="margin-bottom: -2em" href=""><img
+                src="https://i.doanhnhansaigon.vn/2018/01/10/dongusdyeudoanhnhansaigon-1515555086_750x0.jpg" alt=""></a>
+        <p>Giá xe</p>
+    </div>
+</div>
+<div style="height: 50em ">
+    <div style="background-color: #201818 ; padding-left: 5em ;padding-right: 5em ">
+        <nav style="border-bottom: 1px solid white;padding-bottom: 0" class="navbar navbar-expand-lg  ">
+            <p style="color: white;text-align: center;padding-bottom: 0;padding-top: 1em;padding-right: 2em">CHUYÊN
+                TƯ VẤN  VỀ CÁC DÒNG MOTO  CHÍNH HÃNG</p>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active"><span class="glyphicon glyphicon-download" aria-hidden="true"></span>
+                        <a class="nav-link" href="#"> <i class="fas fa-mobile"></i>
+                            SERVICE: 0915.208.066 - PHỤ TÙNG: 094.520.2210</a>
+                    </li>
+                    <li class="nav-item active"><span class="glyphicon glyphicon-align-left" aria-hidden="true"></span>
+                        <a class="nav-link" href="#"> <i class="fas fa-address-book"></i>
+                            SỐ 3, NGUYỄN LƯƠNG BẰNG, QUẬN 7 THÀNH PHỐ HỒ CHÍ MINH</a>
+                    </li>
+                    </li> </li>
+                    <li class="nav-item active"><span class="glyphicon glyphicon-align-left" aria-hidden="true"></span>
+                        <a class="nav-link" href="#"><i class="fas fa-user"></i>
+                            MON - SAT 9.00 - 19.00, SUN 9.00 - 17.00</a>
+                    </li>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+    <div style="background-color: #201818 ; padding-left: 5em ;padding-right: 5em">
+        <nav class="navbar navbar-expand-lg navbar-light bg-grey ">
+            <a class="paddingheader" href="#">Navbar</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+                    aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a class="paddingheader" href="#">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="paddingheader" href="#">Features</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="paddingheader" href="#">Pricing</a>
+                    </li>
+                    <li class="form-inline my-2 my-lg-0" style="width: 30em">
+                        <a class="paddingheader" href="#" id="navbarDropdown">
+
+                        </a>
+                    </li>
+                    <li class="form-inline my-2 my-lg-0">
+                        <a class="paddingheader" href="#" id="navbarDropdownMenuLink">
+                            Hotline tư vấn: 0903552744 -0934514531 -035 626 3448
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+
+
+    <img src="img/bk2.jpg" height="1079" width="100%"/></div>
+    </div>
+
+
+
+
+
+</body>
+</html>

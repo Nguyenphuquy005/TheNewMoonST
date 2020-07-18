@@ -1,15 +1,15 @@
-package com.example.demo.saveDomainHandle.proxy;
+package com.example.demo.importProduct;
+
 import com.example.demo.saveDomainHandle.saveLinhkDomain.ProxyAuthenticator;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import javax.net.ssl.SSLException;
 import java.io.*;
 import java.net.*;
 import java.util.*;
 
-public class DomainHandle {
+public class Import1 {
     private Queue<String> proxyQueue = new LinkedList<>();
     private String currentProxy;
     private List<String> domainList = new ArrayList<>();
@@ -30,7 +30,6 @@ public class DomainHandle {
             bufferedReader.close();
         } catch (Exception e) {
             System.out.println("test12345");
-
         }
         return content.toString();
     }
@@ -54,8 +53,10 @@ public class DomainHandle {
             URL url = new URL(theUrl);
             // create a urlconnection object
             URLConnection urlConnection = url.openConnection(proxy);
-            urlConnection.setConnectTimeout(2000);
-            urlConnection.setReadTimeout(2000);
+//            urlConnection.setConnectTimeout(2000);
+//            urlConnection.setReadTimeout(2000);
+            urlConnection.setConnectTimeout(500);
+            urlConnection.setReadTimeout(500);
             // wrap the urlconnection in a bufferedreader
             BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(urlConnection.getInputStream()));
             String line;
@@ -125,50 +126,19 @@ public class DomainHandle {
         return "Product: "+jsonArray.length()+"pc\n";
     }
     public static void main(String[] args) {
-        DomainHandle domainHandle = new DomainHandle();
+        importSummerOufix domainHandle = new importSummerOufix();
         domainHandle.getProxyFromPath("D:\\TheNewMoonST\\file\\domain_file\\proxy\\proxy.txt");
-       // domainHandle.getDomainFromPath("D:\\TheNewMoonST\\file\\domain_file\\proxy");
+        // domainHandle.getDomainFromPath("D:\\TheNewMoonST\\file\\domain_file\\proxy");
         domainHandle.getData();
     }
     public void getData(){
         try {
-            File myObj = new File("D:\\TheNewMoonST\\file\\domain_file\\Domain\\totbag.txt");
+            File myObj = new File("D:\\TheNewMoonST\\file\\domain_file\\LinkHandle\\132.txt");
             Scanner myReader = new Scanner(myObj);
             while (myReader.hasNextLine()) {
                 String data = myReader.nextLine();
-                System.out.println("1:  " + data);
-
-                Boolean check = true;
-                long p = 1;
-                while (check) {
-                    String output = getUrlContents(data+"/products.json?limit=500&page="+p , currentProxy);
-                    System.out.println(output);
-                    System.out.println(p);
-                    if (isJSONValid(output)) {
-                        JSONObject object = new JSONObject(output) ;
-                        JSONArray array = object.getJSONArray("products");
-                        System.out.println(array.length());
-                        if (array.length() == 0){
-                            System.out.println("next Page");
-                            check = false ;
-                        } else {
-                            for (int i=0 ; i< array.length() ; i++){
-                                System.out.println(i);
-                                System.out.println(array.length());
-                                System.out.println(data);
-                                JSONObject objectResult = new JSONObject(array.get(i).toString());
-                                if(objectResult.get("images").toString().equals("[]")){
-                                    System.out.println("next Record");
-                                }else {
-                                    System.out.println(objectResult.getString("handle"));
-                                    SaveFile(data+"/products/"+objectResult.get("handle").toString());
-                                }
-
-                            }
-                            p++ ;
-                        }
-                    }
-                };
+                System.out.println(data);
+                getUrlContents(data ,currentProxy);
 
             };
             myReader.close();
@@ -195,9 +165,10 @@ public class DomainHandle {
         return true;
     }
     public static void SaveFile(String data) throws IOException {
-        BufferedWriter writer = new BufferedWriter(new FileWriter("D:\\TheNewMoonST\\file\\domain_file\\Domain\\mug.txt", true));
+        BufferedWriter writer = new BufferedWriter(new FileWriter("D:\\TheNewMoonST\\file\\08\\t-shirts.txt", true));
         writer.write(data + "\n");
         writer.close();
+    }
 }
-}
+
 

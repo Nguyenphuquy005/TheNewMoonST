@@ -15,7 +15,7 @@ import java.util.Scanner;
 public class SaveDomainProxy {
     public static void main(String[] args) {
         try {
-            File myObj = new File("D:\\TheNewMoonST\\file\\domain_file\\canvas_shopify.txt");
+            File myObj = new File("D:\\TheNewMoonST\\file\\08\\musical.txt");
             Scanner myReader = new Scanner(myObj);
             while (myReader.hasNextLine()) {
                 String data = myReader.nextLine();

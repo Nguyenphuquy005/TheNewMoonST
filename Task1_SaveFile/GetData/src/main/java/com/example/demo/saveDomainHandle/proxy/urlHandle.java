@@ -41,8 +41,9 @@ public class urlHandle {
             connection.setReadTimeout(2000);
             int code = connection.getResponseCode();
             switch (code){
+
                 case 404: break; // domain fail
-                case 503:
+                case 503 : case 500:
                     proxyList.put(currentProxy,(proxyList.get(currentProxy)+1));
                 case 407:
                 case 430:

@@ -10,6 +10,7 @@ public class Program {
     public static  void  main(String[] args) throws AWTException, InterruptedException {
         // Open Chrom
         Robot robot = new Robot() ;
+        String abc = "KeyEvent.VK_U" ;
         robot.mouseMove(210,1100);
         AutoClicker autoClicker = new AutoClicker() ;
         autoClicker.clickMouse(InputEvent.BUTTON1_DOWN_MASK);
