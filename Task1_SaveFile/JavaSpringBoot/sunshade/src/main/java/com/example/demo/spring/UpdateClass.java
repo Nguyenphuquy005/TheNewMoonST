@@ -20,133 +20,34 @@ import java.util.Collection;
 @Controller
 public class UpdateClass {
     @RequestMapping(
-            value = {"/productsQ"},
+            value = {"/products"},
             method = {RequestMethod.GET},produces = {MediaType.APPLICATION_JSON_VALUE}
     )
-    public ResponseEntity findAllProductQ(@RequestParam(name = "productQ") String product ) throws JSONException{
+    public ResponseEntity findAllProductQ(@RequestParam(name = "product") String product ) throws JSONException {
         String output = getUrlContents(product);
         JSONObject obj = new JSONObject(output);
-        int lenghts = obj.getJSONObject("product").getJSONArray("variants").length();
-        if (obj.getJSONObject("product").getJSONArray("options").length() == 1){
-            JSONObject value = (JSONObject) obj.getJSONObject("product").getJSONArray("options").get(0) ;
-            JSONArray values = value.getJSONArray("values") ;
-            int i = 1;
-            while (i <= values.length()){
-                values.remove(0);
-            }
-            values.put("S");
-            values.put("M");
-            values.put("L");
-            values.put("XL");
-            values.put("2XL");
-            values.put("3XL");
-            values.put("4XL");
-            values.put("5XL");
-            for(int j = 0; j < lenghts; j++) {
-                JSONObject itemArr = (JSONObject)obj.getJSONObject("product").getJSONArray("variants").get(j);
-                if (itemArr.getInt("position") == 1) {
-                    itemArr.put("compare_at_price",(Collection< ? >) null);
-                    itemArr.put("option2","S");
-                    itemArr.put("price", "33.95");
-                }
-                else if (itemArr.getInt("position") == 2) {
-                    itemArr.put("compare_at_price",(Collection< ? >) null);
-                    itemArr.put("option2","M");
-                    itemArr.put("price", "33.95");
-                }
-                else if (itemArr.getInt("position") == 3) {
-                    itemArr.put("compare_at_price",(Collection< ? >) null);
-                    itemArr.put("option2","L");
-                    itemArr.put("price", "33.95");
-                }
-                else if (itemArr.getInt("position") == 4) {
-                    itemArr.put("compare_at_price",(Collection< ? >) null);
-                    itemArr.put("option2","XL");
-                    itemArr.put("price", "33.95");
-                }
-                else if (itemArr.getInt("position") == 5) {
-                    itemArr.put("compare_at_price",(Collection< ? >) null);
-                    itemArr.put("option2","2XL");
-                    itemArr.put("price", "34.95");
-                }
-                else if (itemArr.getInt("position") == 6) {
-                    itemArr.put("compare_at_price",(Collection< ? >) null);
-                    itemArr.put("option2","3XL");
-                    itemArr.put("price", "35.95");
-                }
-                else if (itemArr.getInt("position") == 7) {
-                    itemArr.put("compare_at_price",(Collection< ? >) null);
-                    itemArr.put("option2","4XL");
-                    itemArr.put("price", "36.95");
-                }
-                else if (itemArr.getInt("position") == 8) {
-                    itemArr.put("compare_at_price",(Collection< ? >) null);
-                    itemArr.put("option2","5XL");
-                    itemArr.put("price", "37.95");
-                }
-                continue;
-
-            }
-        }else {
-            JSONObject value = (JSONObject) obj.getJSONObject("product").getJSONArray("options").get(1) ;
-            JSONArray values = value.getJSONArray("values") ;
-            int i = 1;
-            while (i <= values.length()){
-                values.remove(0);
-            }
-            values.put("S");
-            values.put("M");
-            values.put("L");
-            values.put("XL");
-            values.put("2XL");
-            values.put("3XL");
-            values.put("4XL");
-            values.put("5XL");
-            for(int j = 0; j < lenghts; j++) {
-                JSONObject itemArr = (JSONObject)obj.getJSONObject("product").getJSONArray("variants").get(j);
-                if (itemArr.getString("option2").equals("S")) {
-                    itemArr.put("compare_at_price",(Collection< ? >) null);
-                    itemArr.put("price", "33.95");
-                }
-                else if (itemArr.getString("option2").equals("M")){
-                    itemArr.put("compare_at_price",(Collection< ? >) null);
-                    itemArr.put("price", "33.95");
-                }
-                else if (itemArr.getString("option2").equals("L")){
-                    itemArr.put("compare_at_price",(Collection< ? >) null);
-                    itemArr.put("price", "33.95");
-                }
-                else if (itemArr.getString("option2").equals("XL")){
-                    itemArr.put("compare_at_price",(Collection< ? >) null);
-                    itemArr.put("price", "33.95");
-                }
-                else if (itemArr.getString("option2").equals("2XL")){
-                    itemArr.put("compare_at_price",(Collection< ? >) null);
-                    itemArr.put("price", "34.95");
-                }
-                else if (itemArr.getString("option2").equals("3XL")){
-                    itemArr.put("compare_at_price",(Collection< ? >) null);
-                    itemArr.put("price", "35.95");
-                }
-                else if (itemArr.getString("option2").equals("4XL")){
-                    itemArr.put("compare_at_price",(Collection< ? >) null);
-                    itemArr.put("price", "36.95");
-                }
-                else if (itemArr.getString("option2").equals("5XL")){
-                    itemArr.put("compare_at_price",(Collection< ? >) null);
-                    itemArr.put("price", "37.95");
-                }
-                continue;
-
-            }
+        obj.getJSONObject("product").put("body_html", "<p><strong>SHIPPING AND DELIVERY</strong><br><span>Processing time: 3-5 Business days (Depend on products styles)</span><br><span>Delivery time</span><br><span>- <strong>Express Shipping (with insurance)</strong><strong>:</strong> within 15 - 20 working days</span><br><span>- <strong>Free Shipping (Standard Delivery)</strong>: within 2 - 6 weeks</span></p><p><strong>MATERIAL &amp; DESCRIPTION</strong></p><ul><li><strong><span>Mug holds 11oz / 325ml of your favorite hot or cold beverage.</span></strong></li><li><span>Design professionally printed on both sides of the mug so that everyone can see the awesome graphic whether you are right or left-handed.</span></li><li><span>Printed on only the highest quality mugs. The print will never fade no matter how many times it is washed.</span></li><li>100% Dishwasher and Microwave safe</li></ul><ul></ul><ul></ul>") ;
+        JSONObject value = (JSONObject) obj.getJSONObject("product").getJSONArray("options").get(0);
+        JSONArray values = value.getJSONArray("values");
+        int i = 1;
+        while (i <= values.length()) {
+            values.remove(0);
         }
 
+        values.put("11oz");
+        int lenghts = obj.getJSONObject("product").getJSONArray("variants").length();
+        for(int j = 0; j < lenghts; j++) {
+            JSONObject itemArr = (JSONObject)obj.getJSONObject("product").getJSONArray("variants").get(j);
 
+            if (itemArr.getString("title").contains("10oz")) {
+                itemArr.put("compare_at_price", (Collection< ? >) null);
+                itemArr.put("price", "19.95");
+                itemArr.put("option1", "11oz");
+            }
 
+        }
 
         return new ResponseEntity(obj.toString(), HttpStatus.OK);
-
-
     }
 
 

@@ -106,7 +106,7 @@ public class importSummerOufix {
         int count=0;
         while (true){
             try {
-                Thread.sleep(500);
+                Thread.sleep(2000);
                 System.out.println("Try times: " + ++count);
                 String input = getUrlContents(url+"/products.json?limit=1",currentProxy);
                 System.out.println(getProductFromJSON(input, "products"));
@@ -132,7 +132,7 @@ public class importSummerOufix {
     }
     public void getData(){
         try {
-            File myObj = new File("D:\\TheNewMoonST\\file\\domain_file\\LinkHandle\\132.txt");
+            File myObj = new File("D:\\TheNewMoonST\\file\\domain_file\\Domain\\123.txt");
             Scanner myReader = new Scanner(myObj);
             while (myReader.hasNextLine()) {
                 String data = myReader.nextLine();
@@ -167,7 +167,6 @@ public class importSummerOufix {
         BufferedWriter writer = new BufferedWriter(new FileWriter("D:\\TheNewMoonST\\file\\08\\t-shirts.txt", true));
         writer.write(data + "\n");
         writer.close();
-
 }
 }
 

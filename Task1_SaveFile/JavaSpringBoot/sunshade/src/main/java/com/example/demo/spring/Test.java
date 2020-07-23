@@ -18,44 +18,42 @@ import java.io.FileNotFoundException;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.URLConnection;
+import java.util.Collection;
 import java.util.Scanner;
 
 @Controller
 public class Test {
-    @GetMapping("/test")
-    public ResponseEntity getURL() {
-        String body = getUrlContents("https://planetvegeta.me/collections/car-auto-sunshade/products/css-0474-car-auto-sun-shade.json");
-        return new ResponseEntity(body, HttpStatus.OK);
-    }
 
-    @RequestMapping(value = "/test123", method = RequestMethod.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
+
+    @RequestMapping(value = "/test", method = RequestMethod.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
     public ResponseEntity findOptionProduct() throws JSONException {
-        String output = getUrlContents("https://planetvegeta.me/collections/car-auto-sunshade/products/css-0474-car-auto-sun-shade.json");
+        String output = getUrlContents("https://www.powderaddicts.com/collections/leggings/products/black-and-white-leggings.json");
         JSONObject obj = new JSONObject(output);
-        int lenghts = obj.getJSONObject("product").getJSONArray("variants").length();
-        for (int i = 0; i < lenghts; i++) {
-            JSONObject itemArr = (JSONObject) obj.getJSONObject("product").getJSONArray("variants").get(i);
-            if (itemArr.getString("title").equals("Buy 1")) {
-                System.out.println("old Price: " + itemArr.getString("price"));
-                itemArr.put("price", "4564565");
-                System.out.println("new Price: " + itemArr.getString("price"));
-                System.out.println(i + "_" + itemArr);
-            } else if (itemArr.getString("title").equals("Buy 2")) {
-                System.out.println("old Price: " + itemArr.getString("price"));
-                itemArr.put("price", "4564565");
-                System.out.println("new Price: " + itemArr.getString("price"));
-                System.out.println(i + "_" + itemArr);
-            }
-//            price += sum ;
-        }
-        int lenghtoption = obj.getJSONObject("product").getJSONArray("options").length();
-        JSONObject value = (JSONObject) obj.getJSONObject("product").getJSONArray("options").get(0);
-        JSONArray values = value.getJSONArray("values");
-        values.remove(2);
-        values.remove(4);
-        values.remove(3);
-        values.remove(5);
-        System.out.println(values.get(0));
+        JSONObject jsonObj = new JSONObject();
+        jsonObj.put("id",1234567891);
+        jsonObj.put("title","Gloss Poster / 50x75");
+        jsonObj.put("price","74.95");
+        jsonObj.put("sku","");
+        jsonObj.put("position",4);
+        jsonObj.put("inventory_policy","continue");
+        jsonObj.put("compare_at_price","");
+        jsonObj.put("fulfillment_service","scalable-press");
+        jsonObj.put("inventory_management",null);
+        jsonObj.put("option1","Canvas");
+        jsonObj.put("option2","50 x 75cm (19.7 x 29.5 inches)");
+        jsonObj.put("option3",null);
+        jsonObj.put("created_at","2018-02-09T09:23:29-08:00");
+        jsonObj.put("updated_at","2019-11-12T17:54:17-08:00");
+        jsonObj.put("taxable",true) ;
+        jsonObj.put("barcode",null);
+        jsonObj.put("grams",227) ;
+        jsonObj.put("image_id",1324567891) ;
+        jsonObj.put("weight",0.5);
+        jsonObj.put("weight_unit","lb");
+        jsonObj.put("old_inventory_quality",-3);
+        jsonObj.put("requires_shipping",true);
+        obj.getJSONObject("product").getJSONArray("variants").put(jsonObj) ;
+
         return new ResponseEntity<>(obj.toString(), HttpStatus.OK);
     }
 

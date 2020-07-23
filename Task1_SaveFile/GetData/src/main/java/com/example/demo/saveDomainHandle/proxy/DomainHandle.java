@@ -127,7 +127,6 @@ public class DomainHandle {
     public static void main(String[] args) {
         DomainHandle domainHandle = new DomainHandle();
         domainHandle.getProxyFromPath("D:\\TheNewMoonST\\file\\domain_file\\proxy\\proxy.txt");
-       // domainHandle.getDomainFromPath("D:\\TheNewMoonST\\file\\domain_file\\proxy");
         domainHandle.getData();
     }
     public void getData(){
@@ -195,7 +194,7 @@ public class DomainHandle {
         return true;
     }
     public static void SaveFile(String data) throws IOException {
-        BufferedWriter writer = new BufferedWriter(new FileWriter("D:\\TheNewMoonST\\file\\domain_file\\Domain\\mug.txt", true));
+        BufferedWriter writer = new BufferedWriter(new FileWriter("D:\\TheNewMoonST\\file\\domain_file\\Domain\\outdoor1.txt", true));
         writer.write(data + "\n");
         writer.close();
 }

@@ -127,6 +127,7 @@ public class urlHandle {
         while (true){
             Thread.sleep(250);
             System.out.println("Try times: " + ++count);
+            System.out.println();
             urlHandle.getConntentFromURL("https://0011am.co");
         }
     }
