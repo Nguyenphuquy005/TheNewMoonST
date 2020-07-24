@@ -1,17 +1,17 @@
-package com.example.demo.saveDomainHandle.proxy;
+package com.example.demo.importProduct;
 import com.example.demo.saveDomainHandle.saveLinhkDomain.ProxyAuthenticator;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import javax.net.ssl.SSLException;
 import java.io.*;
 import java.net.*;
 import java.util.*;
 
-public class DomainHandle {
-    private Queue<String> proxyQueue = new LinkedList<>();
-    private String currentProxy;
+public class StandardProxy {
+
+    private static Queue<String> proxyQueue = new LinkedList<>();
+    private static String currentProxy;
     private List<String> domainList = new ArrayList<>();
     public static String getUrlContents(String theUrl) {
         StringBuilder content = new StringBuilder();
@@ -34,7 +34,7 @@ public class DomainHandle {
         }
         return content.toString();
     }
-    public String getUrlContents(String theUrl, String proxyLink) {
+    public static String getUrlContents(String theUrl, String proxyLink) {
         Proxy proxy = Proxy.NO_PROXY;
         if (!proxyLink.equals("") && !proxyLink.equals(("0.0.0.0"))) {
             List<String> proxyProfile = Arrays.asList(proxyLink.split(" "));
@@ -85,7 +85,6 @@ public class DomainHandle {
         } catch (FileNotFoundException ex){
             ex.printStackTrace();
         }
-
     }
     public void getDomainFromPath(String path){
         try {
@@ -125,78 +124,28 @@ public class DomainHandle {
         return "Product: "+jsonArray.length()+"pc\n";
     }
     public static void main(String[] args) {
-        DomainHandle domainHandle = new DomainHandle();
+        StandardProxy domainHandle = new StandardProxy();
         domainHandle.getProxyFromPath("D:\\TheNewMoonST\\file\\domain_file\\proxy\\proxy.txt");
         domainHandle.getData();
     }
     public void getData(){
         try {
-            File myObj = new File("D:\\TheNewMoonST\\file\\domain_file\\Domain\\totbag.txt");
+            File myObj = new File("D:\\TheNewMoonST\\file\\domain_file\\Domain\\123.txt");
             Scanner myReader = new Scanner(myObj);
             while (myReader.hasNextLine()) {
                 String data = myReader.nextLine();
-                System.out.println("1:  " + data);
-
-                Boolean check = true;
-                long p = 1;
-                while (check) {
-                    String output = getUrlContents(data+"/products.json?limit=500&page="+p , currentProxy);
-                    System.out.println(output);
-                    System.out.println(p);
-                    if (isJSONValid(output)) {
-                        JSONObject object = new JSONObject(output) ;
-                        JSONArray array = object.getJSONArray("products");
-                        System.out.println(array.length());
-                        if (array.length() == 0){
-                            System.out.println("next Page");
-                            SaveFile("\n") ;
-                            check = false ;
-                        } else {
-                            for (int i=0 ; i< array.length() ; i++){
-                                System.out.println(i);
-                                System.out.println(array.length());
-                                System.out.println(data);
-                                JSONObject objectResult = new JSONObject(array.get(i).toString());
-                                if(objectResult.get("images").toString().equals("[]")){
-                                    System.out.println("next Record");
-
-                                }else {
-                                    System.out.println(objectResult.getString("handle"));
-                                    SaveFile(data+"/products/"+objectResult.get("handle").toString());
-                                }
-
-                            }
-                            p++ ;
-                        }
-                    }
-                };
-
+                  getUrlContents(data,currentProxy) ;
+                System.out.println(data);
             };
             myReader.close();
         } catch (FileNotFoundException e) {
             System.out.println("FileNotFoundException");
             e.fillInStackTrace();
-        } catch (IOException e) {
-            System.out.println( "Io Exception");
-            e.printStackTrace();
         }
     }
-    public static boolean isJSONValid(String test) {
-        try {
-            new JSONObject(test);
-        } catch (JSONException ex) {
-            // edited, to include @Arthur's comment
-            // e.g. in case JSONArray is valid as well...
-            try {
-                new JSONArray(test);
-            } catch (JSONException ex1) {
-                return false;
-            }
-        }
-        return true;
-    }
+
     public static void SaveFile(String data) throws IOException {
-        BufferedWriter writer = new BufferedWriter(new FileWriter("D:\\TheNewMoonST\\file\\domain_file\\Domain\\outdoor2.txt", true));
+        BufferedWriter writer = new BufferedWriter(new FileWriter("D:\\TheNewMoonST\\file\\domain_file\\Domain\\outdoor1.txt", true));
         writer.write(data + "\n");
         writer.close();
 }

@@ -1,15 +1,14 @@
-package com.example.demo.saveDomainHandle.proxy;
+package com.example.demo.Standard;
 import com.example.demo.saveDomainHandle.saveLinhkDomain.ProxyAuthenticator;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import javax.net.ssl.SSLException;
 import java.io.*;
 import java.net.*;
 import java.util.*;
 
-public class DomainHandle {
+public class ProxyStandard {
     private Queue<String> proxyQueue = new LinkedList<>();
     private String currentProxy;
     private List<String> domainList = new ArrayList<>();
@@ -125,7 +124,7 @@ public class DomainHandle {
         return "Product: "+jsonArray.length()+"pc\n";
     }
     public static void main(String[] args) {
-        DomainHandle domainHandle = new DomainHandle();
+        ProxyStandard domainHandle = new ProxyStandard();
         domainHandle.getProxyFromPath("D:\\TheNewMoonST\\file\\domain_file\\proxy\\proxy.txt");
         domainHandle.getData();
     }
@@ -196,7 +195,7 @@ public class DomainHandle {
         return true;
     }
     public static void SaveFile(String data) throws IOException {
-        BufferedWriter writer = new BufferedWriter(new FileWriter("D:\\TheNewMoonST\\file\\domain_file\\Domain\\outdoor2.txt", true));
+        BufferedWriter writer = new BufferedWriter(new FileWriter("D:\\TheNewMoonST\\file\\domain_file\\Domain\\outdoor1.txt", true));
         writer.write(data + "\n");
         writer.close();
 }

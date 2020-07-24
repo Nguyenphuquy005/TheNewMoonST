@@ -14,7 +14,7 @@ public class Import1 {
             while (myReader.hasNextLine()) {
                 String data = myReader.nextLine();
                 System.out.println(data);
-                getUrlContents(data);
+
                 myReader.close();
             }
             } catch(FileNotFoundException e){
@@ -23,7 +23,7 @@ public class Import1 {
             }
 
     }
-    private static void getUrlContents(String theUrl) {
+    public static void getUrlContents(String data, String theUrl) {
         StringBuilder content = new StringBuilder();
 
         try {

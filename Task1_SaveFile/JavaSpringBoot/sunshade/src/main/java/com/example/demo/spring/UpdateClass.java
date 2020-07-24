@@ -50,9 +50,6 @@ public class UpdateClass {
         return new ResponseEntity(obj.toString(), HttpStatus.OK);
     }
 
-
-
-
     private static String getUrlContents(String theUrl) {
         StringBuilder content = new StringBuilder();
 
