@@ -129,6 +129,11 @@ public class DomainHandle {
         domainHandle.getProxyFromPath("D:\\TheNewMoonST\\file\\domain_file\\proxy\\proxy.txt");
         domainHandle.getData();
     }
+    public static void SaveFile(String data) throws IOException {
+        BufferedWriter writer = new BufferedWriter(new FileWriter("D:\\TheNewMoonST\\file\\domain_file\\Domain\\tumbler1.txt", true));
+        writer.write(data + "\n");
+        writer.close();
+    }
     public void getData(){
         try {
             File myObj = new File("D:\\TheNewMoonST\\file\\domain_file\\Domain\\totbag.txt");
@@ -138,6 +143,7 @@ public class DomainHandle {
                 System.out.println("1:  " + data);
 
                 Boolean check = true;
+                // 80
                 long p = 1;
                 while (check) {
                     String output = getUrlContents(data+"/products.json?limit=500&page="+p , currentProxy);
@@ -195,10 +201,5 @@ public class DomainHandle {
         }
         return true;
     }
-    public static void SaveFile(String data) throws IOException {
-        BufferedWriter writer = new BufferedWriter(new FileWriter("D:\\TheNewMoonST\\file\\domain_file\\Domain\\outdoor2.txt", true));
-        writer.write(data + "\n");
-        writer.close();
-}
 }
 

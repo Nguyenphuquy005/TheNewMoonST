@@ -18,8 +18,6 @@ import java.util.concurrent.TimeUnit;
 public class ReadSaveFile {
     public static void main(String[] args) {
         MongoClient mongoClient = MongoClients.create("mongodb://localhost:27017");
-
-
         MongoDatabase database = mongoClient.getDatabase("demo");
         MongoCollection<Document> collection = database.getCollection("Products");
         try {
